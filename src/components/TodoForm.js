@@ -4,22 +4,22 @@ class TodoForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: ""
+      search: ""
     };
   }
 
   handleChanges = e => {
     this.setState({
-      task: e.target.value
+      search: e.target.value
     });
-    console.log(this.state.task);
+    console.log(this.state.search);
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addTask(this.state.task);
+    this.props.addTask(this.state.search);
     this.setState({
-      task: ""
+      search: ""
     });
   };
 
@@ -28,12 +28,11 @@ class TodoForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
-            name="task"
-            defaultValue={this.state.task}
+            name="search"
+            value={this.state.search}
             onChange={this.handleChanges}
           />
-          <button onClick={() => this.handleSubmit()}>Add</button>
-          <button action="clear">Clear Completed</button>
+          <button>Add To Do</button>
         </form>
       </div>
     );

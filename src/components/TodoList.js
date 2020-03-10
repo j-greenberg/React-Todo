@@ -3,11 +3,18 @@
 import React from "react";
 import ToDo from "./Todo";
 
-function TodoList() {
+function TodoList(props) {
   return (
     <div>
       <h1>To Do List</h1>
-      <ToDo />
+      <hr></hr>
+      {props.taskList.map(task => (
+        <ToDo
+          key={task.id}
+          task={task}
+          toggleCompleted={props.toggleCompleted}
+        />
+      ))}
     </div>
   );
 }
