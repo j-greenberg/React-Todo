@@ -70,11 +70,11 @@ class App extends React.Component {
     console.log("New Task Added", newTask);
   };
 
-  clearCompleted() {
+  clearCompleted = () => {
     console.log(this.state.taskList);
     this.setState({
       taskList: this.state.taskList.filter(list => {
-        return (list.completed = false);
+        return (list.completed === false);
       })
     });
   }
